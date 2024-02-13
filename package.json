@@ -1,0 +1,48 @@
+{
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "description": "My webpack project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon",
+    "start:dev": "ts-node ./src/*.ts",
+    "start:prod": "npm run build && ts-node ./dist/bundle.js",
+    "start:multi": "nodemon ts-node ./src/*.ts multi",
+    "test": "jest --detectOpenHandles --passWithNoTests",
+    "build": "webpack --mode=production --node-env=production",
+    "lint": "npx eslint ./ --fix",
+    "format": "prettier . --write",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.11.17",
+    "dotenv": "^16.4.3",
+    "nodemon": "^3.0.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
+    "@webpack-cli/generators": "^3.0.7",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.10.0",
+    "eslint": "^8.56.0",
+    "html-webpack-plugin": "^5.6.0",
+    "prettier": "^3.2.5",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.1"
+  }
+}
