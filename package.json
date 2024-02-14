@@ -6,13 +6,10 @@
     "start": "nodemon",
     "start:dev": "ts-node ./src/*.ts",
     "start:prod": "npm run build && ts-node ./dist/index.js",
-    "start:multi": "nodemon ts-node ./src/*.ts multi",
     "test": "jest --detectOpenHandles --passWithNoTests",
     "lint": "npx eslint ./ --fix",
     "format": "prettier . --write",
-    "build": "webpack --config webpack.config.js --mode production",
-    "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "build": "webpack --config webpack.config.js --mode production"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +18,8 @@
     "@types/node": "^20.11.17",
     "dotenv": "^16.4.3",
     "nodemon": "^3.0.3",
-    "uuid": "^3.4.0"
+    "uuid": "^3.4.0",
+    "uuid-validate": "^0.0.3"
   },
   "devDependencies": {
     "@types/uuid": "^9.0.8",
