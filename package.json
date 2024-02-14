@@ -1,20 +1,16 @@
 {
-  "name": "my-webpack-project",
+  "name": "crud-api",
   "version": "1.0.0",
-  "description": "My webpack project",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "nodemon",
     "start:dev": "ts-node ./src/*.ts",
-    "start:prod": "npm run build && ts-node ./dist/bundle.js",
+    "start:prod": "npm run build && ts-node ./dist/index.js",
     "start:multi": "nodemon ts-node ./src/*.ts multi",
     "test": "jest --detectOpenHandles --passWithNoTests",
-    "build": "webpack --mode=production --node-env=production",
     "lint": "npx eslint ./ --fix",
     "format": "prettier . --write",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
+    "build": "webpack --config webpack.config.js --mode production",
     "watch": "webpack --watch",
     "serve": "webpack serve"
   },
@@ -25,9 +21,10 @@
     "@types/node": "^20.11.17",
     "dotenv": "^16.4.3",
     "nodemon": "^3.0.3",
-    "uuid": "^9.0.1"
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.0.1",
     "@typescript-eslint/parser": "^7.0.1",
     "@webpack-cli/generators": "^3.0.7",
