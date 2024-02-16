@@ -68,7 +68,7 @@ export const server = http.createServer((req, res) => {
       res.writeHead(HTTP_STATUSES.CREATED_201, {
         'Content-Type': 'application/json',
       });
-      return res.end(JSON.stringify('User was created'));
+      return res.end(JSON.stringify(newUser));
     });
   }
 
@@ -108,7 +108,7 @@ export const server = http.createServer((req, res) => {
         res.writeHead(HTTP_STATUSES.OK_200, {
           'Content-Type': 'application/json',
         });
-        return res.end(JSON.stringify('The user was updated'));
+        return res.end(JSON.stringify(updateUser));
       });
     }
   }
