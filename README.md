@@ -27,7 +27,7 @@ You need to create `.env` file in root project and write there your PORT.
 http://localhost:{PORT}/api/users
 
 ```shell
-$ PORT = your_port_number
+PORT = your_port_number
 ```
 
 To test the API, you can use Postman.
@@ -42,12 +42,12 @@ To test the API, you can use Postman.
 | PUT     | api/users/id | Update the user by id |
 | DELETE  | api/users/id | Delete the user by id |
 
-to create an user object, use `json` (all properties are required):
+to create an user object, use `json` :
 
 ```
 - "username": string,
 - "age": number,
-- "hobbies": Array of string or empty array
+- "hobbies": array of string or empty array
 ```
 
 to update an existing user you have to write all properties except ID

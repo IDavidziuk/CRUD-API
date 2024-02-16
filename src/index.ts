@@ -11,7 +11,7 @@ import { User } from './interfaces/user';
 require('dotenv').config();
 const PORT = process.env.PORT || 3008;
 
-const server = http.createServer((req, res) => {
+export const server = http.createServer((req, res) => {
   if (!url) {
     res.writeHead(HTTP_STATUSES.NOT_FOUND_404, {
       'Content-Type': 'text/plain',
@@ -61,14 +61,14 @@ const server = http.createServer((req, res) => {
         res.writeHead(HTTP_STATUSES.BAD_REQUEST_400, {
           'Content-Type': 'application/json',
         });
-        return res.end('Please add all fields');
+        return res.end(JSON.stringify('Please add all fields'));
       }
 
       users.push(newUser);
       res.writeHead(HTTP_STATUSES.CREATED_201, {
         'Content-Type': 'application/json',
       });
-      return res.end('User was created');
+      return res.end(JSON.stringify('User was created'));
     });
   }
 
@@ -78,12 +78,12 @@ const server = http.createServer((req, res) => {
       res.writeHead(HTTP_STATUSES.BAD_REQUEST_400, {
         'Content-Type': 'application/json',
       });
-      return res.end('This id is not valid');
+      return res.end(JSON.stringify('This id is not valid'));
     } else if (!user) {
       res.writeHead(HTTP_STATUSES.NOT_FOUND_404, {
         'Content-Type': 'application/json',
       });
-      return res.end('User is not find');
+      return res.end(JSON.stringify('User is not find'));
     } else {
       let body = '';
       req.on('data', (chunk) => {
@@ -95,7 +95,7 @@ const server = http.createServer((req, res) => {
           res.writeHead(HTTP_STATUSES.BAD_REQUEST_400, {
             'Content-Type': 'application/json',
           });
-          return res.end('Please add all fields');
+          return res.end(JSON.stringify('Please add all fields'));
         }
 
         const updateUser: User = {
@@ -108,7 +108,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(HTTP_STATUSES.OK_200, {
           'Content-Type': 'application/json',
         });
-        return res.end('The user was updated');
+        return res.end(JSON.stringify('The user was updated'));
       });
     }
   }
@@ -119,18 +119,18 @@ const server = http.createServer((req, res) => {
       res.writeHead(HTTP_STATUSES.BAD_REQUEST_400, {
         'Content-Type': 'application/json',
       });
-      return res.end('This id is not valid');
+      return res.end(JSON.stringify('This id is not valid'));
     } else if (!user) {
       res.writeHead(HTTP_STATUSES.NOT_FOUND_404, {
         'Content-Type': 'application/json',
       });
-      return res.end('User is not find');
+      return res.end(JSON.stringify('User is not find'));
     } else {
+      users.splice(0, users.length, ...users.filter((user) => user.id != id));
       res.writeHead(HTTP_STATUSES.NO_CONTENT_204, {
         'Content-Type': 'application/json',
       });
-      users.splice(0, users.length, ...users.filter((user) => user.id != id));
-      return res.end('User was deleted');
+      return res.end(JSON.stringify('User was deleted'));
     }
   }
 });
