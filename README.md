@@ -59,3 +59,11 @@ to update an existing user you have to write all properties except ID
  "hobbies": ["update_hobby"],
 }
 ```
+
+## Testing
+
+Implemented 3 test scenarios for the API:
+
+```shell
+$ npm run test
+```
